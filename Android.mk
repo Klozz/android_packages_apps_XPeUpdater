@@ -23,6 +23,7 @@ LOCAL_RESOURCE_DIR := \
 LOCAL_AAPT_FLAGS += --rename-manifest-package mx.xperience.updater
 LOCAL_PACKAGE_NAME := Updater
 LOCAL_PRIVILEGED_MODULE := true
+LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 include $(BUILD_PACKAGE)
