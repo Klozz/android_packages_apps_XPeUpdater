@@ -95,9 +95,9 @@ public class Utils {
         update.setName(object.getString("file"));
         update.setDownloadId(object.getString("filemd5"));
         update.setFileSize(object.getLong("filesize"));
-        update.setType("nightly");
+        update.setType(object.getString("romtype"));
         update.setDownloadUrl(object.getString("filelink"));
-        update.setVersion("12.1");
+        update.setVersion(object.getString("version"));
         return update;
     }
 
@@ -154,12 +154,11 @@ public class Utils {
     }
 
     public static String getServerURL(Context context) {
-        //String version = SystemProperties.get(Constants.PROP_BUILD_VERSION);
+        String version = SystemProperties.get(Constants.PROP_BUILD_VERSION);
         String tipo = "nightly";
         String device = SystemProperties.get(Constants.PROP_NEXT_DEVICE,
                 SystemProperties.get(Constants.PROP_DEVICE));
         String type = SystemProperties.get(Constants.PROP_RELEASE_TYPE).toLowerCase(Locale.ROOT);
-        String version = "12";
 
         String serverUrl = SystemProperties.get(Constants.PROP_UPDATER_URI);
         if (serverUrl.trim().isEmpty()) {
@@ -168,7 +167,7 @@ public class Utils {
 
         return serverUrl.replace("{device}", device)
                 .replace("{version}", version)
-                .replace("{type}", tipo);
+                .replace("{type}", type);
     }
 
     /*public static String getChangelogURL(Context context) {
