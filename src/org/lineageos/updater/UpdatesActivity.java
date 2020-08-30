@@ -27,6 +27,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.SystemProperties;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -129,6 +130,8 @@ public class UpdatesActivity extends UpdatesListActivity {
         TextView headerBuildDate = (TextView) findViewById(R.id.header_build_date);
         headerBuildDate.setText(StringGenerator.getDateLocalizedUTC(this,
                 DateFormat.LONG, BuildInfoUtils.getBuildDateTimestamp()));
+
+        updateDeviceName();
 
         // Switch between header title and appbar title minimizing overlaps
         final CollapsingToolbarLayout collapsingToolbar =
@@ -367,6 +370,13 @@ public class UpdatesActivity extends UpdatesListActivity {
                 StringGenerator.getTimeLocalized(this, lastCheck));
         TextView headerLastCheck = (TextView) findViewById(R.id.header_last_check);
         headerLastCheck.setText(lastCheckString);
+    }
+
+    private void updateDeviceName(){
+        final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+      String device = getString(R.string.device_name, SystemProperties.get(Constants.PROP_DEVICENAME), SystemProperties.get(Constants.PROP_VENDOR_MODEL));
+      TextView deviceModel = (TextView) findViewById(R.id.header_device_plus_codename);
+      deviceModel.setText(device);
     }
 
     private void handleDownloadStatusChange(String downloadId) {
