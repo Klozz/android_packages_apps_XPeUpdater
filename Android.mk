@@ -23,6 +23,7 @@ LOCAL_AAPT_FLAGS += --rename-manifest-package mx.xperience.updater
 LOCAL_PACKAGE_NAME := Updater
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_PRIVATE_PLATFORM_APIS := true
+LOCAL_CERTIFICATE := platform
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 LOCAL_REQUIRED_MODULES := privapp_whitelist_mx.xperience.updater.xml
