@@ -24,6 +24,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.SystemProperties;
 import android.os.storage.StorageManager;
@@ -45,6 +46,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashSet;
@@ -57,6 +62,7 @@ import java.util.zip.ZipFile;
 public class Utils {
 
     private static final String TAG = "Utils";
+    private static String txt;
 
     private Utils() {
     }
@@ -175,11 +181,21 @@ public class Utils {
                 .replace("{type}", type);
     }
 
-    /*public static String getChangelogURL(Context context) {
+    public static String getChangelogURL(Context context) {
         String device = SystemProperties.get(Constants.PROP_NEXT_DEVICE,
                 SystemProperties.get(Constants.PROP_DEVICE));
-        return context.getString(R.string.menu_changelog_url, device);
-    }*/
+        String version = SystemProperties.get(Constants.PROP_BUILD_VERSION);
+        String type = SystemProperties.get(Constants.PROP_RELEASE_TYPE).toLowerCase(Locale.ROOT);
+
+        String changelogURI = SystemProperties.get(Constants.PROP_UPDATER_URI_CHA);
+        if ( changelogURI.trim().isEmpty()) {
+            changelogURI = context.getString(R.string.changelog_url);
+        }
+
+        return changelogURI.replace("{device}", device)
+                .replace("{version}", version)
+                .replace("{type}", type);
+    }
 
     public static void triggerUpdate(Context context, String downloadId) {
         final Intent intent = new Intent(context, UpdaterService.class);

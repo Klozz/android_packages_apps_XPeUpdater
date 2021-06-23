@@ -45,6 +45,7 @@ public final class Constants {
     public static final String PROP_NEXT_DEVICE = "ro.updater.next_device";
     public static final String PROP_RELEASE_TYPE = "ro.xpe.releasetype";
     public static final String PROP_UPDATER_URI = "xpe.updater.uri";
+    public static final String PROP_UPDATER_URI_CHA = "xpe.updater.uricha";
     public static final String PROP_UPDATER_ALLOW_DOWNGRADING = "xperience.updater.allow_downgrading";
     public static final String PROP_DEVICENAME = "ro.xpe.model";
     public static final String PROP_VENDOR_MODEL = "ro.product.vendor.model";

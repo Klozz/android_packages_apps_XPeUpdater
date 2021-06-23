@@ -21,8 +21,12 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.os.BatteryManager;
+import android.os.Handler;
 import android.os.PowerManager;
+import android.os.Environment;
+import android.os.SystemProperties;
 import android.preference.PreferenceManager;
 import android.text.SpannableString;
 import android.text.format.Formatter;
@@ -38,6 +42,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.view.ContextThemeWrapper;
@@ -57,12 +62,22 @@ import org.lineageos.updater.misc.StringGenerator;
 import org.lineageos.updater.misc.Utils;
 import org.lineageos.updater.model.UpdateInfo;
 import org.lineageos.updater.model.UpdateStatus;
+import org.w3c.dom.Text;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
 
 public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.ViewHolder> {
 
@@ -77,8 +92,8 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
     private List<String> mDownloadIds;
     private String mSelectedDownload;
     private UpdaterController mUpdaterController;
-    private UpdatesListActivity mActivity;
-
+    private static UpdatesListActivity mActivity;
+    public static String txt;
     private AlertDialog infoDialog;
 
     private enum Action {
@@ -90,14 +105,17 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         DELETE,
         CANCEL_INSTALLATION,
         REBOOT,
+        CHANGELOG,
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private Button mAction;
+        private Button mChangelog;
 
         private TextView mBuildDate;
         private TextView mBuildVersion;
         private TextView mBuildSize;
+        private TextView mChangelogT;
 
         private ProgressBar mProgressBar;
         private TextView mProgressText;
@@ -105,10 +123,12 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         public ViewHolder(final View view) {
             super(view);
             mAction = (Button) view.findViewById(R.id.update_action);
+            mChangelog = (Button) view.findViewById(R.id.update_changelogb);
 
             mBuildDate = (TextView) view.findViewById(R.id.build_date);
             mBuildVersion = (TextView) view.findViewById(R.id.build_version);
             mBuildSize = (TextView) view.findViewById(R.id.build_size);
+            mChangelogT = (TextView) view.findViewById(R.id.update_changelog);
 
             mProgressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
             mProgressText = (TextView) view.findViewById(R.id.progress_text);
@@ -177,6 +197,7 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
                             R.string.preparing_ota_first_boot);
             viewHolder.mProgressBar.setIndeterminate(false);
             viewHolder.mProgressBar.setProgress(update.getInstallProgress());
+
         } else if (mUpdaterController.isVerifyingUpdate(downloadId)) {
             setButtonAction(viewHolder.mAction, Action.INSTALL, downloadId, false);
             viewHolder.mProgressText.setText(R.string.list_verifying_update);
@@ -189,6 +210,7 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
             String total = Formatter.formatShortFileSize(mActivity, update.getFileSize());
             String percentage = NumberFormat.getPercentInstance().format(
                     update.getProgress() / 100.f);
+
             viewHolder.mProgressText.setText(mActivity.getString(R.string.list_download_progress_new,
                     downloaded, total, percentage));
             viewHolder.mProgressBar.setIndeterminate(false);
@@ -200,6 +222,7 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         viewHolder.mProgressBar.setVisibility(View.VISIBLE);
         viewHolder.mProgressText.setVisibility(View.VISIBLE);
         viewHolder.mBuildSize.setVisibility(View.INVISIBLE);
+        setButtonAction(viewHolder.mChangelog, Action.CHANGELOG, downloadId, true);
     }
 
     private void handleNotActiveStatus(ViewHolder viewHolder, UpdateInfo update) {
@@ -229,6 +252,8 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         viewHolder.mProgressBar.setVisibility(View.INVISIBLE);
         viewHolder.mProgressText.setVisibility(View.INVISIBLE);
         viewHolder.mBuildSize.setVisibility(View.VISIBLE);
+        setButtonAction(viewHolder.mChangelog, Action.CHANGELOG, downloadId, true);
+        viewHolder.mChangelogT.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -409,6 +434,10 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
                 } : null;
             }
             break;
+            case CHANGELOG: {
+                clickListener = enabled ? view -> new getChangelogDialog().execute(Utils.getChangelogURL(view.getContext())) : null;
+            }
+            break;
             default:
                 clickListener = null;
         }
@@ -571,6 +600,51 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
+    private static class getChangelogDialog extends AsyncTask<String, Void, String> {
+
+        protected String doInBackground(String... strings) {
+            String outputString = "";
+            String inputString;
+            int i = 0;
+
+            try {
+                URL changelog = new URL(strings[0]);
+                BufferedReader in = new BufferedReader(
+                        new InputStreamReader(
+                                changelog.openStream()));
+
+                while((inputString = in.readLine()) != null) {
+                    // don't include the top 4 lines of the changelog
+                    if (i >= 0) {
+                        outputString += inputString + "\n";
+                    }
+                    i++;
+                }
+
+                in.close();
+
+                return outputString;
+            } catch(IOException e) {
+                Log.e(TAG, "Could not fetch changelog from " + strings[0]);
+                return mActivity.getResources().getString(R.string.changelog_fail);
+            }
+        }
+
+        @SuppressLint("RestrictedApi")
+        protected void onPostExecute(String result) {
+            AlertDialog dialog = new AlertDialog.Builder(mActivity)
+                    .setTitle(R.string.action_changelog)
+                    .setPositiveButton(android.R.string.ok, null)
+                    .setMessage(result)
+                    .create();
+            //TextView textView = (TextView) dialog.findViewById(android.R.id.message);
+            TextView changet = (TextView) mActivity.findViewById(R.id.update_changelog);
+            changet.setText("- Changelog -"+"\n");
+            changet.append(result);
+           // textView.setMovementMethod(LinkMovementMethod.getInstance());
+        }
+    }
+
     private boolean isBatteryLevelOk() {
         Intent intent = mActivity.registerReceiver(null,
                 new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
@@ -585,4 +659,5 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
                 mActivity.getResources().getInteger(R.integer.battery_ok_percentage_discharging);
         return percent >= required;
     }
+
 }
