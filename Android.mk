@@ -28,7 +28,7 @@ LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_CERTIFICATE := platform
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
-LOCAL_REQUIRED_MODULES := privapp_whitelist_mx.xperience.updater.xml
+LOCAL_REQUIRED_MODULES := privapp_whitelist_mx.xperience.updater.xml default-permissions_mx.xperience.updater.xml
 
 include $(BUILD_PACKAGE)
 
@@ -40,6 +40,13 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
 LOCAL_SRC_FILES := $(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
 
+include $(CLEAR_VARS)
+LOCAL_MODULE := default-permissions_mx.xperience.updater.xml
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := UpdaterStudio
