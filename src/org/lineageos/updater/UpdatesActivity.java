@@ -266,6 +266,7 @@ public class UpdatesActivity extends UpdatesListActivity {
             }
             mAdapter.setData(updateIds);
             mAdapter.notifyDataSetChanged();
+            mUpdateButton.setVisibility(View.GONE);
         }
     }
 
