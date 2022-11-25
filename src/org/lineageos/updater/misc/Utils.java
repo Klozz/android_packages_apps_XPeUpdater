@@ -26,6 +26,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.os.LocaleList;
 import android.os.SystemProperties;
 import android.os.storage.StorageManager;
 import android.preference.PreferenceManager;
@@ -155,6 +156,7 @@ public class Utils {
                     updates.add(update);
                 } else {
                     Log.d(TAG, "Ignoring incompatible update " + update.getName());
+                    //updates.add(update); enable for kyoto test only
                 }
             } catch (JSONException e) {
                 Log.e(TAG, "Could not parse update object, index=" + i, e);
@@ -186,10 +188,17 @@ public class Utils {
                 SystemProperties.get(Constants.PROP_DEVICE));
         String version = SystemProperties.get(Constants.PROP_BUILD_VERSION);
         String type = SystemProperties.get(Constants.PROP_RELEASE_TYPE).toLowerCase(Locale.ROOT);
-
+        String currentLanguage = Locale.getDefault().getDisplayLanguage();
         String changelogURI = SystemProperties.get(Constants.PROP_UPDATER_URI_CHA);
         if ( changelogURI.trim().isEmpty()) {
-            changelogURI = context.getString(R.string.changelog_url);
+            if (currentLanguage.toLowerCase().contains("es")) {
+                changelogURI = context.getString(R.string.changelog_url_esp);
+            } else if (currentLanguage.toLowerCase().contains("eng")) {
+                    changelogURI = context.getString(R.string.changelog_url);
+            } else {
+                Log.d(TAG, "set default locale for changelog");
+                changelogURI = context.getString(R.string.changelog_url);
+            }
         }
 
         return changelogURI.replace("{device}", device)
@@ -419,5 +428,9 @@ public class Utils {
             case Constants.AUTO_UPDATES_CHECK_INTERVAL_MONTHLY:
                 return AlarmManager.INTERVAL_DAY * 30;
         }
+    }
+
+    public static String getAnimationInitial() {
+        return "blue_complete.json";
     }
 }

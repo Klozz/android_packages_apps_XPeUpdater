@@ -24,7 +24,7 @@
 
     <!-- Directory where the downloads will be exported to.
          The path is relative to the root of the external storage.-->
-    <string name="export_path" translatable="false">XPerience updates/</string>
+    <string name="export_path" translatable="false">xperience_updates</string>
 
     <!--
         Optional placeholders replaced at runtime:
@@ -33,6 +33,7 @@
           {version} - Rom version
     -->
     <string name="updater_server_url" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/{device}/{version}/{type}/ota.json</string>
+    <!--<string name="updater_server_url" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/kyoto/17.0/nightly/ota.json</string>-->
     <string name="update_button">Check for update</string>
     <string name="verification_failed_notification">Verification failed</string>
     <string name="verifying_download_notification">Verifying update</string>
@@ -76,6 +77,9 @@
     <string name="menu_export_update">Export update</string>
     <string name="menu_show_changelog">Show changelog</string>
     <string name="changelog_url" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/{device}/{version}/{type}/changelog.txt</string>
+    <string name="changelog_url_esp" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/{device}/{version}/{type}/changelog_esp.txt</string>
+    <!--<string name="changelog_url" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/kyoto/17.0/nightly/changelog.txt</string>-->
+    <!--<string name="changelog_url_esp" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/kyoto/17.0/nightly/changelog_esp.txt</string>-->
     <string name="changelog_fail">Failed to retrieve changelog</string>
     <string name="menu_ab_perf_mode">Install updates faster</string>
 
