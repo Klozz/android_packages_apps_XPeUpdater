@@ -34,7 +34,6 @@
     -->
     <string name="updater_server_url" translatable="false">https://kota.klozz.dev/downloads/devices/api/{device}/{version}/{type}/ota.json</string>
     <!--<string name="updater_server_url" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/kyoto/17.0/nightly/ota.json</string>-->
-    <string name="update_button">Check for update</string>
     <string name="verification_failed_notification">Verification failed</string>
     <string name="verifying_download_notification">Verifying update</string>
     <string name="downloading_notification">Downloading</string>
@@ -59,8 +58,6 @@
     <string name="finalizing_package">Finalizing package installation</string>
     <string name="preparing_ota_first_boot">Preparing for first boot</string>
     <string name="dialog_prepare_zip_message">Preliminary update preparation</string>
-    <string name="dialog_battery_low_title">Low battery</string>
-    <string name="dialog_battery_low_message_pct">The battery level is too low, you need at least <xliff:g id="percent_discharging">%1$d</xliff:g>%% of the battery to continue, <xliff:g id="percent_charging">%2$d</xliff:g>%% if charging.</string>
 
     <string name="reboot">Reboot</string>
 
@@ -80,7 +77,6 @@
     <string name="changelog_url_other" translatable="false">https://kota.klozz.dev/downloads/devices/api/{device}/{version}/{type}/changelog_{lang}.txt</string>
     <!--<string name="changelog_url" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/kyoto/17.0/nightly/changelog.txt</string>-->
     <!--<string name="changelog_url_esp" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/kyoto/17.0/nightly/changelog_esp.txt</string>-->
-    <string name="changelog_fail">Failed to retrieve changelog</string>
     <string name="menu_ab_perf_mode">Install updates faster</string>
 
     <string name="snack_updates_found">New update found</string>
@@ -156,6 +152,5 @@
     <string name="new_updates_channel_title">New updates</string>
     <string name="ongoing_channel_title">Ongoing downloads</string>
     <string name="update_failed_channel_title">Update failed</string>
-    <string name="device_name">Device: <xliff:g id="model" example="lavender">%1$s</xliff:g> (<xliff:g id="vendor" example="Redmi Note 7">%2$s</xliff:g>)</string>
-    <string name="action_changelog">Changelog</string>
+
 </resources>
