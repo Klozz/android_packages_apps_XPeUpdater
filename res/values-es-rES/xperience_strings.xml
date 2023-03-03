@@ -21,4 +21,19 @@
     <string name="action_changelog">Lista de cambios</string>
     <string name="changelog_fail">Error al obtener la lista de cambios</string>
     <string name="update_button">Comprobar actualizaciones</string>
+    <string name="action_download">Descargar</string>
+    <string name="action_pause">Pausar</string>
+    <string name="action_resume">Reanudar</string>
+    <string name="action_install">Instalar</string>
+    <string name="action_info">Información</string>
+    <string name="action_delete">Eliminar</string>
+    <string name="action_cancel">Cancelar</string>
+    <string name="menu_refresh">Recargar</string>
+    <string name="menu_preferences">Preferencias</string>
+    <string name="menu_auto_updates_check">Comprobación automática de actualizaciones</string>
+    <string name="menu_auto_updates_check_interval_daily">Una vez al día</string>
+    <string name="menu_auto_updates_check_interval_weekly">Una vez a la semana</string>
+    <string name="menu_auto_updates_check_interval_monthly">Una vez al mes</string>
+    <string name="menu_auto_updates_check_interval_never">Nunca</string>
+    <string name="menu_ab_perf_mode">Instalar actualizaciones más rápido</string>
 </resources>
