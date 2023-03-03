@@ -61,13 +61,6 @@
 
     <string name="reboot">Reboot</string>
 
-    <string name="menu_refresh">Refresh</string>
-    <string name="menu_preferences">Preferences</string>
-    <string name="menu_auto_updates_check">Auto updates check</string>
-    <string name="menu_auto_updates_check_interval_daily">Once a day</string>
-    <string name="menu_auto_updates_check_interval_weekly">Once a week</string>
-    <string name="menu_auto_updates_check_interval_monthly">Once a month</string>
-    <string name="menu_auto_updates_check_interval_never">Never</string>
     <string name="menu_auto_delete_updates">Delete updates when installed</string>
     <string name="menu_delete_update">Delete</string>
     <string name="menu_copy_url">Copy URL</string>
@@ -77,7 +70,6 @@
     <string name="changelog_url_other" translatable="false">https://kota.klozz.dev/downloads/devices/api/{device}/{version}/{type}/changelog_{lang}.txt</string>
     <!--<string name="changelog_url" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/kyoto/17.0/nightly/changelog.txt</string>-->
     <!--<string name="changelog_url_esp" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/kyoto/17.0/nightly/changelog_esp.txt</string>-->
-    <string name="menu_ab_perf_mode">Install updates faster</string>
 
     <string name="snack_updates_found">New update found</string>
     <string name="snack_no_updates_found">No new updates found</string>
