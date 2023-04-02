@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.SystemProperties;
 import android.util.Log;
@@ -40,6 +41,7 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.text.format.DateFormat;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
@@ -49,6 +51,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.snackbar.Snackbar;
@@ -87,6 +90,8 @@ public class UpdatesActivity extends UpdatesListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_updates);
+
+        LottieAnimationView animationView = findViewById(R.id.header_image);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         mAdapter = new UpdatesListAdapter(this);
@@ -165,7 +170,6 @@ public class UpdatesActivity extends UpdatesListActivity {
                 downloadUpdatesList(true);
             }
         });
-
     }
 
     @Override
@@ -327,6 +331,7 @@ public class UpdatesActivity extends UpdatesListActivity {
         String url = Utils.getServerURL(this);
         Log.d(TAG, "Checking " + url);
 
+        LottieAnimationView animationView = findViewById(R.id.header_image);
         DownloadClient.DownloadCallback callback = new DownloadClient.DownloadCallback() {
             @Override
             public void onFailure(final boolean cancelled) {
@@ -336,6 +341,19 @@ public class UpdatesActivity extends UpdatesListActivity {
                         showSnackbar(R.string.snack_updates_check_failed, Snackbar.LENGTH_LONG);
                     }
                     //refreshAnimationStop();
+                    // we cant update list
+                    //animationView.clearAnimation();
+                    //animationView.setAnimation(R.raw.a404);
+                    //animationView.playAnimation();
+                    //agregamos un delay de 1.5s antes de cambiar
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            animationView.clearAnimation();
+                            animationView.setAnimation(R.raw.a404);
+                            animationView.playAnimation();
+                        }
+                    }, 1500);
                 });
             }
 
@@ -350,6 +368,17 @@ public class UpdatesActivity extends UpdatesListActivity {
                     Log.d(TAG, "List downloaded");
                     processNewJson(jsonFile, jsonFileTmp, manualRefresh);
                 });
+                //agregamos un delay de 1.5s antes de cambiar
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        animationView.clearAnimation();
+                        animationView.setAnimation(R.raw.update_available);
+                        animationView.playAnimation();
+                        animationView.getBackgroundTintMode();
+                    }
+                }, 1500);
+
             }
         };
 
