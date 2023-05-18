@@ -188,21 +188,13 @@ public class Utils {
                 SystemProperties.get(Constants.PROP_DEVICE));
         String version = SystemProperties.get(Constants.PROP_BUILD_VERSION);
         String type = SystemProperties.get(Constants.PROP_RELEASE_TYPE).toLowerCase(Locale.ROOT);
-        String currentLanguage = Locale.getDefault().getLanguage();
+        String currentLanguage = Locale.getDefault().getDisplayLanguage();
         String changelogURI = SystemProperties.get(Constants.PROP_UPDATER_URI_CHA);
         if ( changelogURI.trim().isEmpty()) {
             if (currentLanguage.toLowerCase().contains("es")) {
-                changelogURI = context.getString(R.string.changelog_url_other);
-            } else if (currentLanguage.toLowerCase().contains("tr")){
-                changelogURI = context.getString(R.string.changelog_url_other);
-            } else if (currentLanguage.toLowerCase().contains("ja")){
-                changelogURI = context.getString(R.string.changelog_url_other);
-            } else if (currentLanguage.toLowerCase().contains("in")){
-                changelogURI = context.getString(R.string.changelog_url_other);
-            } else if (currentLanguage.toLowerCase().contains("ru")){
-                changelogURI = context.getString(R.string.changelog_url_other);
-            } else if (currentLanguage.toLowerCase().contains("vi")){
-                changelogURI = context.getString(R.string.changelog_url_other);
+                changelogURI = context.getString(R.string.changelog_url_esp);
+            } else if (currentLanguage.toLowerCase().contains("eng")) {
+                    changelogURI = context.getString(R.string.changelog_url);
             } else {
                 Log.d(TAG, "set default locale for changelog");
                 changelogURI = context.getString(R.string.changelog_url);
@@ -211,8 +203,7 @@ public class Utils {
 
         return changelogURI.replace("{device}", device)
                 .replace("{version}", version)
-                .replace("{type}", type)
-                .replace("{lang}", currentLanguage);
+                .replace("{type}", type);
     }
 
     public static void triggerUpdate(Context context, String downloadId) {
