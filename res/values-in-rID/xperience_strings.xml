@@ -14,4 +14,26 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dialog_battery_low_title">Baterai lemah</string>
+    <string name="dialog_battery_low_message_pct">Tingkat baterai terlalu rendah, Anda memerlukan setidaknya <xliff:g id="percent_discharging">%1$d</xliff:g>%% baterai untuk melanjutkan, <xliff:g id="percent_charging">%2$d</xliff:g>%% jika saat pengisian.</string>
+    <string name="device_name">Perangkat: <xliff:g id="model" example="lavender">%1$s</xliff:g> (<xliff:g id="vendor" example="Redmi Note 7">%2$s</xliff:g>)</string>
+    <string name="action_changelog">Catatan perubahan</string>
+    <string name="changelog_fail">Gagal mengambil catatan perubahan</string>
+    <string name="update_button">Periksa pembaruan</string>
+    <string name="action_download">Unduh</string>
+    <string name="action_pause">Jeda</string>
+    <string name="action_resume">Lanjutkan</string>
+    <string name="action_install">Pasang</string>
+    <string name="action_info">Info</string>
+    <string name="action_delete">Hapus</string>
+    <string name="action_cancel">Batal</string>
+    <string name="menu_refresh">Segarkan</string>
+    <string name="menu_preferences">Preferensi</string>
+    <string name="menu_auto_updates_check">Periksa pembaruan otomatis</string>
+    <string name="menu_auto_updates_check_interval_daily">Sehari sekali</string>
+    <string name="menu_auto_updates_check_interval_weekly">Seminggu sekali</string>
+    <string name="menu_auto_updates_check_interval_monthly">Sebulan sekali</string>
+    <string name="menu_auto_updates_check_interval_never">Jangan pernah</string>
+    <string name="menu_ab_perf_mode">Memasang pembaruan lebih cepat</string>
+</resources>
