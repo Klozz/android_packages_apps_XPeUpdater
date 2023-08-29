@@ -14,4 +14,26 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dialog_battery_low_title">Batterie faible</string>
+    <string name="dialog_battery_low_message_pct">Le niveau de la batterie est trop faible, il faut au moins <xliff:g id="percent_discharging">%1$d</xliff:g>%% de batterie pour continuer, <xliff:g id="percent_charging">%2$d</xliff:g>%% si l\'appareil est en charge.</string>
+    <string name="device_name">Appareil : <xliff:g id="model" example="lavender">%1$s</xliff:g> (<xliff:g id="vendor" example="Redmi Note 7">%2$s</xliff:g>)</string>
+    <string name="action_changelog">Journal de modifications</string>
+    <string name="changelog_fail">Impossible de récupérer le journal des modifications</string>
+    <string name="update_button">Rechercher des mises à jour</string>
+    <string name="action_download">Téléchargement</string>
+    <string name="action_pause">Pause</string>
+    <string name="action_resume">Reprendre</string>
+    <string name="action_install">Installation</string>
+    <string name="action_info">Information</string>
+    <string name="action_delete">Supprimer</string>
+    <string name="action_cancel">Annuler</string>
+    <string name="menu_refresh">Actualiser</string>
+    <string name="menu_preferences">Préférences</string>
+    <string name="menu_auto_updates_check">Vérification automatique des mises à jour</string>
+    <string name="menu_auto_updates_check_interval_daily">Une fois par jour</string>
+    <string name="menu_auto_updates_check_interval_weekly">Une fois par semaine</string>
+    <string name="menu_auto_updates_check_interval_monthly">Une fois par mois</string>
+    <string name="menu_auto_updates_check_interval_never">Jamais</string>
+    <string name="menu_ab_perf_mode">Installer les mises à jour plus rapidement</string>
+</resources>
