@@ -14,4 +14,26 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dialog_battery_low_title">Batteria scarica</string>
+    <string name="dialog_battery_low_message_pct">Il livello di percentuale della batteria è troppo basso, ti serve almeno <xliff:g id="percent_discharging">%1$d</xliff:g>%% di batteria per continuare, <xliff:g id="percent_charging">%2$d</xliff:g>%% se in carica.</string>
+    <string name="device_name">Dispositivo: <xliff:g id="model" example="lavender">%1$s</xliff:g> (<xliff:g id="vendor" example="Redmi Note 7">%2$s</xliff:g>)</string>
+    <string name="action_changelog">Registro dei cambiamenti</string>
+    <string name="changelog_fail">Impossibile ottenere il registro dei cambiamenti</string>
+    <string name="update_button">Controlla aggiornamenti</string>
+    <string name="action_download">Download</string>
+    <string name="action_pause">Pausa</string>
+    <string name="action_resume">Riprendi</string>
+    <string name="action_install">Installa</string>
+    <string name="action_info">Info</string>
+    <string name="action_delete">Elimina</string>
+    <string name="action_cancel">Annulla</string>
+    <string name="menu_refresh">Ricarica</string>
+    <string name="menu_preferences">Preferenze</string>
+    <string name="menu_auto_updates_check">Controllo aggiornamenti automatico</string>
+    <string name="menu_auto_updates_check_interval_daily">Una volta al giorno</string>
+    <string name="menu_auto_updates_check_interval_weekly">Una volta a settimana</string>
+    <string name="menu_auto_updates_check_interval_monthly">Una volta al mese</string>
+    <string name="menu_auto_updates_check_interval_never">Mai</string>
+    <string name="menu_ab_perf_mode">Installa aggiornamenti più velocemente</string>
+</resources>
