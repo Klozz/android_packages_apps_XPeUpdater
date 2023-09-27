@@ -66,8 +66,8 @@
     <string name="menu_copy_url">Copy URL</string>
     <string name="menu_export_update">Export update</string>
     <string name="menu_show_changelog">Show changelog</string>
-    <string name="changelog_url" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/{device}/{version}/{type}/changelog.txt</string>
-    <string name="changelog_url_esp" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/{device}/{version}/{type}/changelog_esp.txt</string>
+    <string name="changelog_url" translatable="false">https://kota.klozz.dev/downloads/devices/api/{device}/{version}/{type}/changelog.txt</string>
+    <string name="changelog_url_esp" translatable="false">https://kota.klozz.dev/downloads/devices/api/{device}/{version}/{type}/changelog_esp.txt</string>
     <!--<string name="changelog_url" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/kyoto/17.0/nightly/changelog.txt</string>-->
     <!--<string name="changelog_url_esp" translatable="false">http://s900114664.onlinehome.mx/downloads/device/api/kyoto/17.0/nightly/changelog_esp.txt</string>-->
 
