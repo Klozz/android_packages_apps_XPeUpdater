@@ -14,4 +14,26 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dialog_battery_low_title">Низкий заряд батареи</string>
+    <string name="dialog_battery_low_message_pct">Уровень заряда батареи слишком низок, для продолжения работы необходимо не менее <xliff:g id="percent_discharging">%1$d</xliff:g>%% батареи, при зарядке - <xliff:g id="percent_charging">%2$d</xliff:g>%%.</string>
+    <string name="device_name">Устройство: <xliff:g id="model" example="lavender">%1$s</xliff:g> (<xliff:g id="vendor" example="Redmi Note 7">%2$s</xliff:g>)</string>
+    <string name="action_changelog">Список изменений</string>
+    <string name="changelog_fail">Не удалось получить список изменений</string>
+    <string name="update_button">Проверить наличие обновлений</string>
+    <string name="action_download">Скачать</string>
+    <string name="action_pause">Пауза</string>
+    <string name="action_resume">Возобновить</string>
+    <string name="action_install">Установить</string>
+    <string name="action_info">Инфо</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_cancel">Отменить</string>
+    <string name="menu_refresh">Обновить</string>
+    <string name="menu_preferences">Предпочтения</string>
+    <string name="menu_auto_updates_check">Автоматическая проверка обновлений</string>
+    <string name="menu_auto_updates_check_interval_daily">Раз в день</string>
+    <string name="menu_auto_updates_check_interval_weekly">Раз в неделю</string>
+    <string name="menu_auto_updates_check_interval_monthly">Раз в месяц</string>
+    <string name="menu_auto_updates_check_interval_never">Никогда</string>
+    <string name="menu_ab_perf_mode">Устанавливать обновления быстрее</string>
+</resources>
