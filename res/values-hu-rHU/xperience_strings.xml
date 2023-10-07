@@ -14,4 +14,27 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="dialog_battery_low_title">Alacsony akkufeszültség</string>
+    <string name="dialog_battery_low_message_pct">Az akkumulátortöltöttség túl alacsony, szüksége van legalább <xliff:g id="percent_discharging">%1$d</xliff:g>%% töltöttségre a folytatáshoz,
+illetve, ha éppen tölt, akkor még <xliff:g id="percent_charging">%2$d</xliff:g>%% töltés szükséges.</string>
+    <string name="device_name">Készülék: <xliff:g id="model" example="lavender">%1$s</xliff:g> (<xliff:g id="vendor" example="Redmi Note 7">%2$s</xliff:g>)</string>
+    <string name="action_changelog">Változáslista</string>
+    <string name="changelog_fail">A változáslista beolvasása sikertelen</string>
+    <string name="update_button">Nézzük, van-e frissítés</string>
+    <string name="action_download">Letöltés</string>
+    <string name="action_pause">Szüneteltetés</string>
+    <string name="action_resume">Folytatás</string>
+    <string name="action_install">Telepítés</string>
+    <string name="action_info">Információ</string>
+    <string name="action_delete">Törlés</string>
+    <string name="action_cancel">Mégse</string>
+    <string name="menu_refresh">Frissítés</string>
+    <string name="menu_preferences">Tulajdonságok</string>
+    <string name="menu_auto_updates_check">Automatikus frissítésellenőrzés</string>
+    <string name="menu_auto_updates_check_interval_daily">Naponta egyszer</string>
+    <string name="menu_auto_updates_check_interval_weekly">Hetente egyszer</string>
+    <string name="menu_auto_updates_check_interval_monthly">Havonta egyszer</string>
+    <string name="menu_auto_updates_check_interval_never">Soha</string>
+    <string name="menu_ab_perf_mode">Gyorsabb frissítéstelepítés</string>
+</resources>
