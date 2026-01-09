@@ -127,7 +127,7 @@ public class UpdatesActivity extends UpdatesListActivity implements UpdateImport
     private TextView mUpdateVersion;
     private TextView mUpdateSize;
     private TextView mChangelogText;
-    private TextView mGrupSupport;
+    /*private TextView mGrupSupport;*/
     private TextView mSystemInfo;
     private TextView mLastCheck;
     private TextView mNoUpdatesTitle;
@@ -162,7 +162,7 @@ public class UpdatesActivity extends UpdatesListActivity implements UpdateImport
         mUpdateVersion = findViewById(R.id.update_version);
         mUpdateSize = findViewById(R.id.update_size);
         mChangelogText = findViewById(R.id.changelog_text);
-        mGrupSupport = findViewById(R.id.grup_support);
+        /*mGrupSupport = findViewById(R.id.grup_support);*/
         mDownloadProgress = findViewById(R.id.download_progress);
         mDownloadButton = findViewById(R.id.download_button);
         mFabInstall = findViewById(R.id.fab_install);
@@ -177,9 +177,9 @@ public class UpdatesActivity extends UpdatesListActivity implements UpdateImport
             mUpdateTitle.setText(getString(R.string.update_available));
         }
 
-        if (mGrupSupport != null) {
+        /*if (mGrupSupport != null) {
             mGrupSupport.setText(getString(R.string.grup_support, "xperiencechat"));
-        }
+        }*/
 
         // Hide elements initially
         if (mDownloadProgress != null) {
