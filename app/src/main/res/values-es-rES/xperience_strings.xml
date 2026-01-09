@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The XPerience Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Header -->
+    <string name="system_update_available">Actualizacion de sistema disponible</string>
+    <string name="update_available">Actualización disponible</string>
+    <string name="updates">Actualizaciones</string>
+    <string name="changelog">Registro de cambios</string>
+    <string name="download">Descarga</string>
+    <string name="cancel_download">Cancelar descarga</string>
+    <string name="pause_download">Pausar descarga</string>
+    <string name="resume_download">Reanudar la descarga</string>
+    <string name="retry_download">Reintentar la Descarga</string>
+    <string name="install">Instalar</string>
+    <string name="download_warning">Si descargas las actualizaciones a través de la red móvil, Wi-Fi medido o en itinerancia de red móvil, es posible que te hagan cargos adicionales.</string>
+    <string name="changelog_unavailable">Registro de cambios no disponible</string>
+    <string name="no_updates_available">No hay actualizaciones disponibles</string>
+    <string name="grup_support">Grupo de soporte: %s</string>
+    <string name="no_updates_found">¡No se han encontrado actualizaciones!</string>
+    <string name="changelog_already_displayed">El registro de cambios ya se muestra a continuación</string>
+    <string name="menu_local_update">Actualización local</string>
+    <string name="download_speed_only">%1$s</string>
+    <string name="download_speed_with_eta">%1$s · %2$s</string>
+    <string name="verifying">Verificando…</string>
+    <string name="download_starting">Iniciando…</string>
+    <!-- Network warning -->
+    <string name="network_warning">        Las descargas pueden usar datos móviles y cargos de incurrencia.
+    </string>
+    <string name="no_updates_message">Su sistema está actualizado. Vuelva más tarde para obtener nuevas actualizaciones.</string>
+</resources>
