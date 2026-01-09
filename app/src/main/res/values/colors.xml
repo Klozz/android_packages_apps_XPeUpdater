@@ -15,4 +15,37 @@
     <color name="md_theme_background">@android:color/system_neutral1_900</color>
     <color name="md_theme_surface">@android:color/system_neutral1_800</color>
     <color name="md_theme_onSurface">@android:color/system_neutral1_100</color>
+
+    <!-- Colores de Material 3 dinámicos -->
+    <color name="material_dynamic_primary40">#6750A4</color>
+    <color name="material_dynamic_primary90">#EADDFF</color>
+    <color name="material_dynamic_secondary40">#625B71</color>
+    <color name="material_dynamic_secondary90">#E8DEF8</color>
+    <color name="material_dynamic_neutral10">#1C1B1F</color>
+    <color name="material_dynamic_neutral95">#F5F5F5</color>
+    <color name="material_dynamic_neutral_variant90">#E6E1E5</color>
+
+    <!-- Colores básicos -->
+    <color name="colorPrimary">#6750A4</color>
+    <color name="colorPrimaryDark">#5A44A1</color>
+    <color name="colorAccent">#03DAC6</color>
+
+    <!-- Colores de fondo -->
+    <color name="window_background">#FAFAFA</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="card_background_light">#F5F5F5</color>
+
+    <!-- Colores de texto -->
+    <color name="text_primary">#1C1B1F</color>
+    <color name="text_secondary">#49454F</color>
+
+    <!-- Otros colores -->
+    <color name="primary_container">#EADDFF</color>
+    <color name="outline">#79747E</color>
+
+    <color name="surface_light">#FFFFFF</color>
+    <color name="on_surface_light">#1C1B1F</color>
+    <color name="surface_container_light">#F7F2FA</color>
+    <color name="outline_light">#79747E</color>
+    <color name="primary_container_light">#EADDFF</color>
 </resources>

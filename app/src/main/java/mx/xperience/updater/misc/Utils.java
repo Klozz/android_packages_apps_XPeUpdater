@@ -74,12 +74,12 @@ public class Utils {
     // used to initialize UpdateInfo objects
     private static UpdateInfo parseJsonUpdate(JSONObject object) throws JSONException {
         Update update = new Update();
-        update.setTimestamp(object.getLong("datetime"));
-        update.setName(object.getString("filename"));
-        update.setDownloadId(object.getString("id"));
+        update.setTimestamp(object.getLong("fileTimestamp"));
+        update.setName(object.getString("file"));
+        update.setDownloadId(object.getString("filemd5"));
+        update.setFileSize(object.getLong("filesize"));
         update.setType(object.getString("romtype"));
-        update.setFileSize(object.getLong("size"));
-        update.setDownloadUrl(object.getString("url"));
+        update.setDownloadUrl(object.getString("filelink"));
         update.setVersion(object.getString("version"));
         return update;
     }
@@ -141,7 +141,7 @@ public class Utils {
         }
 
         JSONObject obj = new JSONObject(json.toString());
-        JSONArray updatesList = obj.getJSONArray("response");
+        JSONArray updatesList = obj.getJSONArray("files");
         for (int i = 0; i < updatesList.length(); i++) {
             if (updatesList.isNull(i)) {
                 continue;
@@ -162,10 +162,11 @@ public class Utils {
     }
 
     public static String getServerURL(Context context) {
-        String incrementalVersion = SystemProperties.get(Constants.PROP_BUILD_VERSION_INCREMENTAL);
+        String version = SystemProperties.get(Constants.PROP_BUILD_VERSION);
         String device = SystemProperties.get(Constants.PROP_NEXT_DEVICE,
                 SystemProperties.get(Constants.PROP_DEVICE));
         String type = SystemProperties.get(Constants.PROP_RELEASE_TYPE).toLowerCase(Locale.ROOT);
+        String tipo = "nightly";
 
         String serverUrl = SystemProperties.get(Constants.PROP_UPDATER_URI);
         if (serverUrl.trim().isEmpty()) {
@@ -173,8 +174,8 @@ public class Utils {
         }
 
         return serverUrl.replace("{device}", device)
-                .replace("{type}", type)
-                .replace("{incr}", incrementalVersion);
+                .replace("{version}", version)
+                .replace("{type}", type);
     }
 
     public static String getUpgradeBlockedURL(Context context) {
@@ -186,7 +187,19 @@ public class Utils {
     public static String getChangelogURL(Context context) {
         String device = SystemProperties.get(Constants.PROP_NEXT_DEVICE,
                 SystemProperties.get(Constants.PROP_DEVICE));
-        return context.getString(R.string.menu_changelog_url, device);
+        String version = SystemProperties.get(Constants.PROP_BUILD_VERSION);
+        String type = SystemProperties.get(Constants.PROP_RELEASE_TYPE).toLowerCase(Locale.ROOT);
+
+        String changelogURI = SystemProperties.get(Constants.PROP_UPDATER_URI);
+        if ( changelogURI.trim().isEmpty()) {
+            changelogURI = context.getString(R.string.menu_changelog_url);
+        }
+
+        Log.d(TAG, "Weeee el changelog");
+
+        return changelogURI.replace("{device}", device)
+                .replace("{version}", version)
+                .replace("{type}", type);
     }
 
     public static void triggerUpdate(Context context, String downloadId) {

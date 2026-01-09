@@ -1,5 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
@@ -15,21 +17,27 @@
 
         <TextView
             android:id="@+id/update_version"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textColor="@color/md_theme_onSurface"/>
 
         <TextView
             android:id="@+id/update_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:textSize="13sp"
             android:textColor="@android:color/system_neutral1_400"/>
 
         <TextView
             android:id="@+id/update_changelog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:textSize="14sp"
             android:lineSpacingExtra="6dp"
+            android:textSize="14sp"
             android:textColor="@color/md_theme_onSurface"/>
 
     </LinearLayout>

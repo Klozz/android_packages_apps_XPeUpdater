@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The XPerience Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Header -->
+    <string name="system_update_available">System update available</string>
+    <string name="update_available">System update available</string>
+    <string name="updates">Updates</string>
+    <string name="changelog">Changelog</string>
+    <string name="download">Download</string>
+    <string name="cancel_download">Cancel Download</string>
+    <string name="pause_download">Pause Download</string>
+    <string name="resume_download">Resume Download</string>
+    <string name="retry_download">Retry Download</string>
+    <string name="install">Install</string>
+    <string name="download_warning">Downloading updates, over a cellular network, metered Wi-Fi, or while roaming may cause additional charges.</string>
+    <string name="changelog_unavailable">Changelog not available</string>
+    <string name="no_updates_available">No updates available</string>
+    <string name="grup_support">Group support: %s</string>
+    <string name="no_updates_found">No updates found!</string>
+    <string name="changelog_already_displayed">Changelog is already displayed below</string>
+    <string name="menu_local_update">Local update</string>
+    <string name="download_speed_only">%1$s</string>
+    <string name="download_speed_with_eta">%1$s · %2$s</string>
+    <string name="verifying">Verifying…</string>
+    <string name="download_starting">Starting…</string>
+    <plurals name="list_download_progress_newer" translatable="false">
+        <item quantity="one">%1$s / %2$s</item>
+        <item quantity="other">%1$s / %2$s</item>
+    </plurals>
+
+    <plurals name="list_download_progress_eta_newer" translatable="false">
+        <item quantity="one">%1$s / %2$s · %3$s</item>
+        <item quantity="other">%1$s / %2$s · %3$s</item>
+    </plurals>
+
+    <!-- Network warning -->
+    <string name="network_warning">
+        Downloads may use mobile data and incur charges.
+    </string>
+
+    <string name="no_updates_message">Your system is up to date. Check back later for new updates.</string>
+</resources>
