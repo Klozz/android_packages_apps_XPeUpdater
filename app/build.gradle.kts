@@ -33,7 +33,7 @@ android {
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "org.lineageos.updater"
+        applicationId = "mx.xperience.updater"
         minSdk = 32
         targetSdk = 33
         versionCode = 1
@@ -81,7 +81,7 @@ android {
             }
         }
     }
-    namespace = "org.lineageos.updater"
+    namespace = "mx.xperience.updater"
 }
 
 dependencies {
